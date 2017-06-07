@@ -84,6 +84,7 @@ Section "MainSection" SEC01
   File "Release\exchndl.dll";jash modify
   File "Release\GCOMMAC.dll";jash modify
   File "Release\GDeviceAC.dll";jash modify
+  File "Release\GFCapture-0.6.0.0002.exe";jash modify
   File "Release\GFCapture.dll";jash modify
   File "Release\GOControl.dll";jash modify
   File "Release\GRDxControl.dll";jash modify
@@ -114,7 +115,7 @@ SectionEnd
 Section -AdditionalIcons
   SetOutPath $INSTDIR
   WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-  CreateShortCut "$SMPROGRAMS\SYRIS_Fingerprinte\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url";jash modify
+  CreateShortCut "$SMPROGRAMS\SYRIS_Fingerprint\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url";jash modify
   CreateShortCut "$SMPROGRAMS\SYRIS_Fingerprint\Uninstall.lnk" "$INSTDIR\uninst.exe";jash modify
 SectionEnd
 
@@ -188,10 +189,13 @@ Section Uninstall
   RMDir /r "$INSTDIR\*.*"
   RMDir "$INSTDIR"
   
+  RMDir /r "$SMPROGRAMS\SYRIS_Fingerprint\*.*";jash modify
+  RMDir "$SMPROGRAMS\SYRIS_Fingerprint";jash modify  
+  
   SetShellVarContext all
   RMDir /r "$SMPROGRAMS\SYRIS_Fingerprint\*.*";jash modify
   RMDir "$SMPROGRAMS\SYRIS_Fingerprint";jash modify
-  RMDir ""
+
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
