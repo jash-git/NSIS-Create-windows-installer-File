@@ -2,7 +2,7 @@
 
 ; 安裝程式初始定義常量
 !define PRODUCT_NAME "SYRIS_Fingerprint";jash modify
-!define PRODUCT_VERSION "v0100";jash modify
+!define PRODUCT_VERSION "v0101";jash modify
 !define PRODUCT_PUBLISHER "SYRIS, Inc.";jash modify
 !define PRODUCT_WEB_SITE "http://www.syris.com/";jash modify
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\SYRIS_Fingerprint.exe";jash modify
@@ -79,28 +79,36 @@ Section "MainSection" SEC01
   CreateShortCut "$DESKTOP\SYRIS_Fingerprint.lnk" "$INSTDIR\SYRIS_Fingerprint.exe";jash modify
 
 
-  File "Release\CB_SYFCLib.dll";jash modify
+  ;File "Release\CB_SYFCLib.dll";jash modify
+  ;File "Release\exchndl.dll";jash modify
+  ;File "Release\GCOMMAC.dll";jash modify
+  ;File "Release\GDeviceAC.dll";jash modify
+  ;File "Release\GFCapture-0.6.0.0002.exe";jash modify
+  ;File "Release\GFCapture.dll";jash modify
+  ;File "Release\GOControl.dll";jash modify
+  ;File "Release\GRDxControl.dll";jash modify
+  ;File "Release\GSJournal.dll";jash modify
+  ;File "Release\GSQueue.dll";jash modify
+  ;File "Release\GUSBMAC.dll";jash modify
+  ;File "Release\SDL.dll";jash modify
+  ;File "Release\SQLite.dll";jash modify
+  ;File "Release\SQLite.NET.dll";jash modify
+  ;File "Release\SQLite3.dll";jash modify
+  File "Release\MySql.Data.dll";jash modify  
   File "Release\DockManager.config";jash modify
-  File "Release\exchndl.dll";jash modify
-  File "Release\GCOMMAC.dll";jash modify
-  File "Release\GDeviceAC.dll";jash modify
-  File "Release\GFCapture-0.6.0.0002.exe";jash modify
-  File "Release\GFCapture.dll";jash modify
-  File "Release\GOControl.dll";jash modify
-  File "Release\GRDxControl.dll";jash modify
-  File "Release\GSJournal.dll";jash modify
-  File "Release\GSQueue.dll";jash modify
-  File "Release\GUSBMAC.dll";jash modify
   File "Release\Ionic.Zip.dll";jash modify
   File "Release\Mono.Security.dll";jash modify
   File "Release\Npgsql.dll";jash modify
-  File "Release\SDL.dll";jash modify
-  File "Release\SQLite.dll";jash modify
-  File "Release\SQLite.NET.dll";jash modify
-  File "Release\SQLite3.dll";jash modify
+  File "Release\MySql.Data.Entity.dll";jash modify
+  File "Release\MySql.Data.Entity.EF6.dll";jash modify
+  File "Release\MySql.Fabric.Plugin.dll";jash modify
+  File "Release\MySql.Web.dll";jash modify
   File "Release\SYRIS_Fingerprint.exe";jash modify
   File "Release\WeifenLuo.WinFormsUI.Docking.dll";jash modify
-
+  File "Release\mysql.zip";jash modify
+  
+  ;使用外掛元件執行解壓縮
+  nsisunz::UnzipToLog "$INSTDIR\mysql.zip" $INSTDIR   
 
 
   Call GetNetFrameworkVersion
