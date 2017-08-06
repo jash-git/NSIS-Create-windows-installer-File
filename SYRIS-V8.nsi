@@ -72,7 +72,7 @@ Section "MainSection" SEC01
   CreateShortCut "$DESKTOP\SYRIS-V8.lnk" "$INSTDIR\SYRIS-V8.exe";jash modify
 
   File "Release\SYRIS-V8.exe";jash modify
-  File "Release\SYRIS-V8.zip";jash modify
+  File "Release\SYRIS-V8.zip";jash modify~其他檔案全部壓成同一個ZIP這樣就不用寫太多
   
   ;使用外掛元件執行解壓縮
   nsisunz::UnzipToLog "$INSTDIR\SYRIS-V8.zip" $INSTDIR   
